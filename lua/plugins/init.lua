@@ -1,5 +1,12 @@
 return {
   { 'wakatime/vim-wakatime', lazy = false },
+  
+  {
+    'vyfor/cord.nvim',
+    build = ':Cord update',
+    -- opts = {}
+  },
+
   {
     "stevearc/conform.nvim",
     -- event = 'BufWritePre', -- uncomment for format on save
