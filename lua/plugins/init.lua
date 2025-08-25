@@ -1,4 +1,5 @@
 return {
+  { 'wakatime/vim-wakatime', lazy = false },
   {
     "stevearc/conform.nvim",
     -- event = 'BufWritePre', -- uncomment for format on save
@@ -22,7 +23,14 @@ return {
       local codelldb_pkg = vim.fn.expand("$MASON/packages/codelldb")
       local extension_path = codelldb_pkg .. "/extension/"
       local codelldb_path = extension_path .. "adapter/codelldb"
-      local liblldb_path = extension_path.. "lldb/lib/liblldb.dylib"
+      
+      local sysname = vim.loop.os_uname().sysname
+      local liblldb_path
+      if sysname == "Darwin" then
+        liblldb_path = extension_path .. "lldb/lib/liblldb.dylib"
+      else
+        liblldb_path = extension_path .. "lldb/lib/liblldb.so"
+      end
 
       local cfg = require('rustaceanvim.config')
 
