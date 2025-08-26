@@ -1,11 +1,7 @@
 return {
   { 'wakatime/vim-wakatime', lazy = false },
-  
-  {
-    'vyfor/cord.nvim',
-    build = ':Cord update',
-    -- opts = {}
-  },
+
+  { "andweeb/presence.nvim", lazy = false },
 
   {
     "stevearc/conform.nvim",
